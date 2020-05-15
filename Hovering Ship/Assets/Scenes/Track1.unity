@@ -121,6 +121,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &425676921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5928067818492651596, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5928067817274478793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &425676928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425676921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63aa3ec1ead04d34eb546b71716a5b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 0}
+  lift: 300
+  airGravity: 15
+  hoverHeight: 3
+  pID:
+    pFactor: 0
+    iFactor: 0
+    dFactor: 0
+  hoverType: 0
+  hoverExp: 1
 --- !u!1001 &426002880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,17 +768,17 @@ PrefabInstance:
     - target: {fileID: 5928067818204118461, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 3.6738676e-10
+      value: -4.0002976e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022278063
+      value: 0.022278043
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017168242
+      value: 0.000000017269613
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
@@ -762,20 +790,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -15.507553
       objectReference: {fileID: 0}
+    - target: {fileID: 5928067818492651598, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.98107195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928067818492651598, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.009464502
+      objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 3.6738676e-10
+      value: -4.0002976e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022278063
+      value: 0.022278043
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017168242
+      value: 0.000000017269613
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: 53b2de6b1c4c67143afa43da8ffcaa9d,
         type: 3}
