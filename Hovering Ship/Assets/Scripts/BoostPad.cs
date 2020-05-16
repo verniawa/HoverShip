@@ -16,10 +16,8 @@ public class BoostPad : MonoBehaviour{
     IEnumerator boost(Collider ship){
         Rigidbody rigidbody = ship.GetComponent<Rigidbody>();
         rigidbody.AddForce(- transform.right * boostValue, ForceMode.VelocityChange);
-        // ShipController ShipController = ship.GetComponent<ShipController>();
-        // ShipController.thrust += boostValue;
         yield return new WaitForSeconds(.5f);
-        // ShipController.thrust -= boostValue;
+
     }
     
 

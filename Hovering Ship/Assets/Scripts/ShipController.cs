@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipController : MonoBehaviour
-{
-    public GameObject trigger;
-    float distanceToGround;
+public class ShipController : MonoBehaviour{
     Rigidbody rigidbody;
     public Transform shipBody;
     public float thrust;
     public float topSpeed;
     public float handling, bodyRotation, pitchRotation;
-    float x, y, z;
     Vector3 startPos;
     Quaternion startRot;
     PlayerControls controls;
@@ -37,7 +33,6 @@ public class ShipController : MonoBehaviour
         }
         turning();
         pitch();
-        
     }
 
     //apply acceleration
@@ -68,8 +63,11 @@ public class ShipController : MonoBehaviour
     }
 
     void airBrake(){
-        Vector3 velocity = rigidbody.velocity;
-
+        //apply force at wing of ship
+        //get position of wind
+        //calculate force proportional to velocity
+        //apply the force
+        
     }
 
     private void OnEnable() {
