@@ -67,6 +67,11 @@ public class ShipController : MonoBehaviour
         rigidbody.AddRelativeTorque(rotation, ForceMode.Acceleration);
     }
 
+    void airBrake(){
+        Vector3 velocity = rigidbody.velocity;
+
+    }
+
     private void OnEnable() {
         controls.Gameplay.Enable();   
     }

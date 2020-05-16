@@ -65,6 +65,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""be70534d-687e-4de0-b330-fe69f76a4b05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -86,6 +94,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45b91478-6365-4c93-b541-acea58b54560"",
+                    ""path"": ""<HID::Gravis Destroyer Tiltpad>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -147,6 +166,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3e4e2c74-ed4c-4867-884f-cedd4c8d7d1a"",
+                    ""path"": ""<Joystick>/stick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ab301db8-d2ae-4e23-b7c1-55776b9d64ee"",
                     ""path"": ""<Gamepad>/leftStick/y"",
                     ""interactions"": """",
@@ -202,6 +232,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a759ba9d-f6e5-4412-9ca8-8d5f0da77ead"",
+                    ""path"": ""<Joystick>/stick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4cf071be-3438-4a9d-86e9-c3969944a276"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -215,6 +256,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""f1558a12-92ff-47f5-b784-cc43b2c0b70c"",
                     ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acdf0c6d-d63f-4dc3-aea4-10c7e1ad22d4"",
+                    ""path"": ""<HID::Gravis Destroyer Tiltpad>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -246,6 +298,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d229cfbe-908c-48ac-8b37-eb2c2b0cfc2e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AirBrake Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f327bef5-00f5-4368-b695-cb9a96df4982"",
+                    ""path"": ""<HID::Gravis Destroyer Tiltpad>/button5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AirBrake Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""bfb57505-e2ca-42ee-8504-e418a6270b5b"",
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
@@ -263,6 +337,50 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AirBrake Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af2baa30-874f-4164-b42d-405b02739234"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AirBrake Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6d4e62d-946c-4333-be87-b51f77c1dfdc"",
+                    ""path"": ""<HID::Gravis Destroyer Tiltpad>/button6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AirBrake Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32d01b89-05de-48fe-9f96-8883a26217e1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b66eae92-9d05-447f-9e32-ae7d8263727a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -302,6 +420,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
         m_Gameplay_AirBrakeLeft = m_Gameplay.FindAction("AirBrake Left", throwIfNotFound: true);
         m_Gameplay_AirBrakeRight = m_Gameplay.FindAction("AirBrake Right", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -357,6 +476,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Reset;
     private readonly InputAction m_Gameplay_AirBrakeLeft;
     private readonly InputAction m_Gameplay_AirBrakeRight;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -367,6 +487,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
         public InputAction @AirBrakeLeft => m_Wrapper.m_Gameplay_AirBrakeLeft;
         public InputAction @AirBrakeRight => m_Wrapper.m_Gameplay_AirBrakeRight;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -394,6 +515,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AirBrakeRight.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAirBrakeRight;
                 @AirBrakeRight.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAirBrakeRight;
                 @AirBrakeRight.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAirBrakeRight;
+                @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -416,6 +540,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AirBrakeRight.started += instance.OnAirBrakeRight;
                 @AirBrakeRight.performed += instance.OnAirBrakeRight;
                 @AirBrakeRight.canceled += instance.OnAirBrakeRight;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -446,5 +573,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnReset(InputAction.CallbackContext context);
         void OnAirBrakeLeft(InputAction.CallbackContext context);
         void OnAirBrakeRight(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
