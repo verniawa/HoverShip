@@ -4,45 +4,41 @@ using UnityEngine;
 
 public class Hover : MonoBehaviour{
     public GameObject trigger;
-    public float lift, airGravity;
+    public float lift, fallSpeed;
     public float hoverHeight;
     float distanceToGround;
     public PID pID;
     Rigidbody rigidbody;
     float x, y, z;
-    Vector3[] hoverPoints;
+    Vector3[] hoverPointsLocations;
     public int hoverExp;
+    public GameObject[] hoverPoints;
     
     
 
     void Start(){
         rigidbody = GetComponent<Rigidbody>();
 
-        //placeholder code just to get it working temporarily
-        //supposed to be references to the location of the corners of the collider
-        float maxX = transform.localScale.x / 5;
-        float maxY = transform.localScale.y / 2;
-        float maxZ = transform.localScale.z / 10;
-
-        hoverPoints = new Vector3[4];
-        hoverPoints[0] = new Vector3(maxX , maxY, maxZ);
-        hoverPoints[1] = new Vector3(maxX, maxY, -maxZ);
-        hoverPoints[2] = new Vector3(-maxX, maxY, maxZ);
-        hoverPoints[3] = new Vector3(-maxX,  maxY, -maxZ);
+        hoverPointsLocations = new Vector3[4];
+        
+        for (int i = 0; i < hoverPoints.Length; i++){
+            hoverPointsLocations[i] = hoverPoints[i].transform.position;
+        }
     }
 
     void FixedUpdate(){
         calculateLift();
-        if (isAirborn()){
+        if (isAirborn(2)){
             stabilize();
         }
+        fastFall();
     }
 
 
     //method to calculate lift forces on ship
     void calculateLift(){
-        for (int i = 0; i < hoverPoints.Length; i++){
-            Ray ray = new Ray(transform.TransformPoint(hoverPoints[i]), -transform.up);
+        for (int i = 0; i < hoverPointsLocations.Length; i++){
+            Ray ray = new Ray(hoverPoints[i].transform.position, -transform.up);
             
             RaycastHit hitInfo;
             //checks if the hover point is close enoough to the ground
@@ -59,11 +55,8 @@ public class Hover : MonoBehaviour{
                 Vector3 force = transform.up * percentForce * lift ;
                 Debug.DrawRay(ray.origin, ray.direction, Color.green,1);//debug
                 
-                rigidbody.AddForceAtPosition(force, ray.origin);
+                rigidbody.AddForceAtPosition(force, hoverPoints[i].transform.position);
                 
-            } else { //replace this eventually, not the best solution
-                //makes ship fall faster when in the air
-                rigidbody.AddForce(Vector3.down * airGravity, ForceMode.Acceleration);
             }
         }
     }
@@ -74,10 +67,19 @@ public class Hover : MonoBehaviour{
         rigidbody.rotation = Quaternion.Lerp(rigidbody.rotation, rollAngle, Time.deltaTime);
     }
 
+    void fastFall(){
+        //makes ship fall faster when in the air
+        if (isAirborn(1.1f)){
+            rigidbody.AddForce(Vector3.down * fallSpeed, ForceMode.Acceleration);
 
-    bool isAirborn(){
-        Ray ray = new Ray(transform.position, -transform.up);
-        return !Physics.Raycast(ray, hoverHeight * 2);
+        }
     }
+
+    bool isAirborn(float factor){
+        Ray ray = new Ray(transform.position, -transform.up);
+        return !Physics.Raycast(ray, hoverHeight * factor);
+    }
+
+
 
 }

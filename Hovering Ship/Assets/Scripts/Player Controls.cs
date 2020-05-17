@@ -385,6 +385,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""d3e967db-40e7-44ad-be03-036bbceb587c"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""e01a37ff-5eed-47a5-8eff-2bc804f6dab0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""34c9ee52-0422-4d9b-9250-72c1d736f081"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -421,6 +448,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_AirBrakeLeft = m_Gameplay.FindAction("AirBrake Left", throwIfNotFound: true);
         m_Gameplay_AirBrakeRight = m_Gameplay.FindAction("AirBrake Right", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -547,6 +577,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Newaction;
+    public struct MenuActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Menu_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_GamePadSchemeIndex = -1;
     public InputControlScheme GamePadScheme
     {
@@ -574,5 +637,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAirBrakeLeft(InputAction.CallbackContext context);
         void OnAirBrakeRight(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
