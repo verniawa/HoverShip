@@ -90,8 +90,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5928067818204118456}
-  m_LocalRotation: {x: 0.022278063, y: -0.000000017168578, z: 3.824197e-10, w: 0.9997518}
-  m_LocalPosition: {x: -0.3223114, y: -1.5976925, z: -15.507553}
+  m_LocalRotation: {x: 0.016270977, y: -0.682893, z: 0.01521734, w: 0.73017865}
+  m_LocalPosition: {x: 134.959, y: 3.7546148, z: 115.55415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5928067817294552924}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 5928067818492651587}
   - component: {fileID: 5928067818492651584}
   - component: {fileID: 5928067818492651585}
-  - component: {fileID: 5928067818492651598}
+  - component: {fileID: 6802804876964303691}
   - component: {fileID: 5928067818492651599}
   - component: {fileID: 5928067818492651586}
   m_Layer: 0
@@ -359,7 +359,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5928067818492651598
+--- !u!65 &6802804876964303691
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,22 +400,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20496eaa84c64a398c1e07a51ffef60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 0}
-  lift: 625
-  airGravity: 15
-  hoverHeight: 2.5
-  pID:
-    pFactor: 1
-    iFactor: 0.05
-    dFactor: 0.5
   shipBody: {fileID: 1674792103453063123}
   thrust: 80
   topSpeed: 80
   handling: 10
   bodyRotation: 15
   pitchRotation: 10
-  hoverType: 0
-  hoverExp: 1
 --- !u!1 &5928067819072345636
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +430,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5928067819072345636}
-  m_LocalRotation: {x: 0.022278063, y: -0.000000017168578, z: 3.824197e-10, w: 0.9997518}
+  m_LocalRotation: {x: 0.022278063, y: -0.000000017168578, z: 3.8240539e-10, w: 0.9997518}
   m_LocalPosition: {x: -0.3223114, y: -1.5976925, z: -15.507553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

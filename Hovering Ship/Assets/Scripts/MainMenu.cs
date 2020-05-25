@@ -7,4 +7,15 @@ public class MainMenu : MonoBehaviour{
     public void playGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void options(){
+
+    }
+    public void quit(){
+        Application.Quit();
+    }
+    public void setQuality(int qualityIndex){
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+
 }
