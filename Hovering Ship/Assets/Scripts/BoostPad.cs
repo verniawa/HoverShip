@@ -6,8 +6,8 @@ public class BoostPad : MonoBehaviour{
     public int boostValue = 10;
 
     void OnTriggerEnter(Collider other){
-        print("BOOST");
-        print(other.gameObject.GetType());
+        // print("BOOST");
+        // print(other.gameObject.GetType());
         if (other.gameObject.tag == "Ship"){
             StartCoroutine(boost(other));
         }

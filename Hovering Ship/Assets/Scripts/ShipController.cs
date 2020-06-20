@@ -11,6 +11,8 @@ public class ShipController : MonoBehaviour{
     Vector3 startPos;
     Quaternion startRot;
     PlayerControls controls;
+    public float airBrakeFactor = 1;
+    public GameObject leftAirBrake, rightAirBrake;
     
     private void Awake() {
         controls = new PlayerControls();
@@ -33,6 +35,12 @@ public class ShipController : MonoBehaviour{
         }
         turning();
         pitch();
+        if (controls.Gameplay.AirBrakeLeft.ReadValue<float>() > 0 ){
+            AirBrakeLeft();
+        }
+        if (controls.Gameplay.AirBrakeRight.ReadValue<float>() > 0){
+            AirBrakeRight();
+        }
     }
 
     //apply acceleration
@@ -62,10 +70,20 @@ public class ShipController : MonoBehaviour{
         rigidbody.AddRelativeTorque(rotation, ForceMode.Acceleration);
     }
 
-    void airBrake(){
-        //apply force at wing of ship
-        //get position of wind
+    void AirBrakeLeft(){
+        Vector3 brakeForceLeft = - airBrakeFactor * Vector3.up;
         //calculate force proportional to velocity
+        float fwdSpeed = transform.InverseTransformDirection(rigidbody.velocity).z;
+        brakeForceLeft = brakeForceLeft * fwdSpeed;
+        rigidbody.AddRelativeTorque(brakeForceLeft, ForceMode.Acceleration);
+        //apply the force
+    }
+
+    void AirBrakeRight(){
+        //apply force at wing of ship
+        Vector3 brakeForceRight = -(rigidbody.velocity)* airBrakeFactor;
+        //calculate force proportional to velocity
+        rigidbody.AddForceAtPosition(brakeForceRight, rightAirBrake.transform.position, ForceMode.Acceleration);
         //apply the force
         
     }
