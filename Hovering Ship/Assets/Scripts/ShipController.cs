@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipController : MonoBehaviour{
     Rigidbody rigidbody;
     public Transform shipBody;
-    public float thrust;
+    public float thrust, speed;
     public float topSpeed;
     public float handling, bodyRotation, pitchRotation;
     Vector3 startPos;
@@ -13,6 +13,7 @@ public class ShipController : MonoBehaviour{
     PlayerControls controls;
     public float airBrakeFactor = 1;
     public GameObject leftAirBrake, rightAirBrake;
+    private float speedScale = .001f;
     
     private void Awake() {
         controls = new PlayerControls();
@@ -30,8 +31,11 @@ public class ShipController : MonoBehaviour{
         rigidbody.velocity = Vector3.zero;
     }
     void FixedUpdate(){
+        updatePosition();
         if (controls.Gameplay.Accelerate.ReadValue<float>() > 0){
             accelerate();
+        } else{
+            decelerate();
         }
         turning();
         pitch();
@@ -41,21 +45,36 @@ public class ShipController : MonoBehaviour{
         if (controls.Gameplay.AirBrakeRight.ReadValue<float>() > 0){
             AirBrakeRight();
         }
+        
     }
 
     //apply acceleration
     void accelerate(){
-        if (rigidbody.velocity.magnitude < topSpeed){
-            Vector3 thrustForce = Vector3.forward * thrust;
-            rigidbody.AddRelativeForce(thrustForce, ForceMode.Acceleration);
+        if (speed < topSpeed){
+            speed += thrust;
+        } else {
+            speed = topSpeed;
         }
     }
 
+    void decelerate(){
+        speed *= .995f;
+    }
+
+    void updatePosition(){
+        // transform.position += speedScale * speed * transform.forward;
+        rigidbody.AddForce(speedScale * speed * transform.forward, ForceMode.VelocityChange);
+        
+        float sidewaysSpeed = Vector3.Dot(rigidbody.velocity, transform.right);
+        Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime / 2);
+        rigidbody.AddForce(sideFriction, ForceMode.Acceleration);
+    }
     //apply turning
     void turning(){
         float rotate = handling * controls.Gameplay.Steering.ReadValue<float>();
         float roll = - bodyRotation * controls.Gameplay.Steering.ReadValue<float>();
         Quaternion rollAngle = transform.rotation * Quaternion.Euler(0f, 0f, roll);
+        
         shipBody.rotation = Quaternion.Lerp(shipBody.rotation, rollAngle, Time.deltaTime * 10f);
 
         Vector3 rotation = Vector3.up * rotate;
