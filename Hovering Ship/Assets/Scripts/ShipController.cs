@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipController : MonoBehaviour{
     Rigidbody rigidbody;
     public Transform shipBody;
+    public ShipScriptable ship;
     public float thrust, speed;
     public float topSpeed;
     public float handling, bodyRotation, pitchRotation;
@@ -18,6 +19,7 @@ public class ShipController : MonoBehaviour{
     private void Awake() {
         controls = new PlayerControls();
         controls.Gameplay.Reset.performed += ctx => resetShip();
+
     }
 
     void Start(){
@@ -64,7 +66,7 @@ public class ShipController : MonoBehaviour{
     void updatePosition(){
         // transform.position += speedScale * speed * transform.forward;
         rigidbody.AddForce(speedScale * speed * transform.forward, ForceMode.VelocityChange);
-        
+
         float sidewaysSpeed = Vector3.Dot(rigidbody.velocity, transform.right);
         Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime / 2);
         rigidbody.AddForce(sideFriction, ForceMode.Acceleration);
@@ -90,20 +92,20 @@ public class ShipController : MonoBehaviour{
     }
 
     void AirBrakeLeft(){
-        Vector3 brakeForceLeft = - airBrakeFactor * Vector3.up;
-        //calculate force proportional to velocity
-        float fwdSpeed = transform.InverseTransformDirection(rigidbody.velocity).z;
-        brakeForceLeft = brakeForceLeft * fwdSpeed;
-        rigidbody.AddRelativeTorque(brakeForceLeft, ForceMode.Acceleration);
-        //apply the force
+        // Vector3 brakeForceLeft = - airBrakeFactor * Vector3.up;
+        // //calculate force proportional to velocity
+        // float fwdSpeed = transform.InverseTransformDirection(rigidbody.velocity).z;
+        // brakeForceLeft = brakeForceLeft * fwdSpeed;
+        // rigidbody.AddRelativeTorque(brakeForceLeft, ForceMode.Acceleration);
+        // //apply the force
     }
 
     void AirBrakeRight(){
-        //apply force at wing of ship
-        Vector3 brakeForceRight = -(rigidbody.velocity)* airBrakeFactor;
-        //calculate force proportional to velocity
-        rigidbody.AddForceAtPosition(brakeForceRight, rightAirBrake.transform.position, ForceMode.Acceleration);
-        //apply the force
+        // //apply force at wing of ship
+        // Vector3 brakeForceRight = -(rigidbody.velocity)* airBrakeFactor;
+        // //calculate force proportional to velocity
+        // rigidbody.AddForceAtPosition(brakeForceRight, rightAirBrake.transform.position, ForceMode.Acceleration);
+        // //apply the force
         
     }
 
