@@ -160,22 +160,22 @@ PrefabInstance:
     - target: {fileID: 5928067817294552925, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_Name
-      value: Ship Container Base Variant
+      value: Ship Container Feisar
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022278067
+      value: 0.022278046
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018149274
+      value: 0.000000016322081
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000041382602
+      value: 0.000000040614456
       objectReference: {fileID: 0}
     - target: {fileID: 5928067818204118461, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
@@ -195,17 +195,17 @@ PrefabInstance:
     - target: {fileID: 5928067819072345638, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022278067
+      value: 0.022278046
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018149274
+      value: 0.000000016322081
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000041382602
+      value: 0.000000040614456
       objectReference: {fileID: 0}
     - target: {fileID: 5928067819072345638, guid: f8392924d7a9941a5aab3a9cabd789f1,
         type: 3}
