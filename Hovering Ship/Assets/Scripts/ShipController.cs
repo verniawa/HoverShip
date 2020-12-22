@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipController : MonoBehaviour{
     Rigidbody rigidbody;
     public Transform shipBody;
-    public ShipScriptable ship;
+    public Ship ship;
     public float thrust, speed;
     public float topSpeed;
     public float handling, bodyRotation, pitchRotation;

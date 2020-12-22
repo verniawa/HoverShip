@@ -5,7 +5,6 @@ public class Hover : MonoBehaviour{
     public float lift, fallSpeed;
     public float hoverHeight;
     float distanceToGround;
-    public PID pID;
     Rigidbody rigidbody;
     float x, y, z;
     Vector3[] hoverPointsLocations;

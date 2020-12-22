@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ShipSelect : MonoBehaviour{
     // PlayerControls controls;
     private GameObject[] shipList;
-    public ShipScriptable playerChoice;
+    public Ship playerChoice;
     private int index = 0;
     public float rotation;
     public Texture[] textures;
