@@ -532,14 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62494d0b5f7b54e01b4d73b867382875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshFilter: {fileID: 154187061}
   mesh: {fileID: 8103356870937957357, guid: 3ae3b33271e21439b8bacededc6adf59, type: 3}
---- !u!33 &154187061 stripped
-MeshFilter:
-  m_CorrespondingSourceObject: {fileID: 4680821270181990263, guid: 7d815f9de196349ea9e0035a2112f564,
-    type: 3}
-  m_PrefabInstance: {fileID: 970319712}
-  m_PrefabAsset: {fileID: 0}
+  meshList: {fileID: 11400000, guid: 682e2eec525a8461f93127bda578dc94, type: 2}
+  playerShip: {fileID: 11400000, guid: 78f30102610de497fac56c6a36a5e1b0, type: 2}
 --- !u!4 &182230464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5296ebd7bc6ae42eaa4737cd067c5268,

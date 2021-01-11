@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipSpawnner : MonoBehaviour{
-    public MeshFilter meshFilter;
-    public Mesh mesh;
+    private MeshFilter meshFilter;
+
+    public Ship playerShip;
+
     void Reset(){
-        meshFilter = GetComponent<MeshFilter>();
-        
     }
+
     void Start(){
-        meshFilter.mesh = mesh;
+        meshFilter = GetComponent<MeshFilter>();
+
+        meshFilter.mesh = playerShip.mesh;
+
     }
+    
+
 }

@@ -39,16 +39,13 @@ public class ShipSelect : MonoBehaviour{
             index = shipList.Length - 1;
         }
         shipList[index].SetActive(true);
-        playerChoice.index = index;
-        playerChoice.model = shipList[index];
+
     }
     public void next(){
         shipList[index].SetActive(false);
         index++;
         index = index % shipList.Length;
         shipList[index].SetActive(true);
-        playerChoice.index = index;
-        playerChoice.model = shipList[index];
     }
 
     public void nextTexture(){
@@ -68,6 +65,9 @@ public class ShipSelect : MonoBehaviour{
 
     public void playGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        playerChoice.mesh = shipList[index].GetComponent<MeshFilter>().mesh;
+
         PlayerPrefs.SetInt("SelectedShip", index);
     }
     

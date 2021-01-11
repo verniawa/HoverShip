@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   name: 
-  index: 0
-  model: {fileID: -927199367670048503, guid: eee84327cbcb34546a509f5af4480b34, type: 3}
+  mesh: {fileID: 0}

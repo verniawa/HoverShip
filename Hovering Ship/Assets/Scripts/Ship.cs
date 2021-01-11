@@ -6,6 +6,6 @@ using UnityEngine;
 public class Ship : ScriptableObject {
     public string name;
     public enum controlType {player, AI};
-    public int index;
-    public GameObject model;
+
+    public Mesh mesh;
 }
