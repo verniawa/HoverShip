@@ -12,9 +12,9 @@ public class ShipSpawnner : MonoBehaviour{
 
     void Start(){
         meshFilter = GetComponent<MeshFilter>();
-
-        meshFilter.mesh = playerShip.mesh;
-
+        if(playerShip.mesh){
+            meshFilter.mesh = playerShip.mesh;
+        }
     }
     
 
