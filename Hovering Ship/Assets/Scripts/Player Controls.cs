@@ -20,7 +20,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Accelerate"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""33a7ca6f-4c7a-4804-b935-38787d0ce204"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
