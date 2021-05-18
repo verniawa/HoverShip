@@ -5922,6 +5922,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5527880174576791283, guid: bd1c896146b704969a9574210a7d5c66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.022278037
+      objectReference: {fileID: 0}
     - target: {fileID: 5527880174947634194, guid: bd1c896146b704969a9574210a7d5c66,
         type: 3}
       propertyPath: m_RootOrder
@@ -5981,6 +5986,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Container AGS
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527880175721809256, guid: bd1c896146b704969a9574210a7d5c66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.022278037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527880175930587916, guid: bd1c896146b704969a9574210a7d5c66,
+        type: 3}
+      propertyPath: pitchAmount
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1c896146b704969a9574210a7d5c66, type: 3}
