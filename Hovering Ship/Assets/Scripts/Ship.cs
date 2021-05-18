@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ship", menuName = "Ship")]
-public class ShipScriptable : ScriptableObject {
+public class Ship : ScriptableObject {
     public string name;
-    public int index;
-    public GameObject model;
+    public enum controlType {player, AI};
+
+    public Mesh mesh;
 }
