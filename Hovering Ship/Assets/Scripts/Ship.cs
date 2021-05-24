@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ship", menuName = "Ship")]
 public class Ship : ScriptableObject {
-    public string name;
+    public string shipName;
     public enum controlType {player, AI};
 
     public Mesh mesh;

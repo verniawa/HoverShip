@@ -13,7 +13,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI UIbestTime;
 
     public LapManager updateUIForPlayer;
-    public Rigidbody rigidbody;
+    public Rigidbody rb;
     public TextMeshProUGUI UISpeed;
 
     private int currentLap = -1;
@@ -37,8 +37,8 @@ public class UIController : MonoBehaviour
             bestTime = updateUIForPlayer.bestLapTime;
             UIbestTime.text = $"Best: {(int)bestTime / 60}:{bestTime % 60:00.000}";
         }
-        if ((int) rigidbody.velocity.magnitude != speed){
-            speed = (int) rigidbody.velocity.magnitude;
+        if ((int) rb.velocity.magnitude != speed){
+            speed = (int) rb.velocity.magnitude;
             UISpeed.text = $"Speed: {speed}";
         }
     }

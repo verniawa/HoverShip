@@ -5,7 +5,7 @@ public class Hover : MonoBehaviour{
     public float lift, fallSpeed;
     public float hoverHeight;
     float distanceToGround;
-    Rigidbody rigidbody;
+    Rigidbody rb;
     float x, y, z;
     Vector3[] hoverPointsLocations;
     public int hoverExp;
@@ -14,7 +14,7 @@ public class Hover : MonoBehaviour{
     
 
     void Start(){
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         hoverPointsLocations = new Vector3[4];
         
@@ -52,7 +52,7 @@ public class Hover : MonoBehaviour{
                 Vector3 force = transform.up * percentForce * lift ;
                 // Debug.DrawRay(ray.origin, ray.direction, Color.green,1);//debug
                 
-                rigidbody.AddForceAtPosition(force, hoverPoints[i].transform.position);
+                rb.AddForceAtPosition(force, hoverPoints[i].transform.position);
                 
             }
         }
@@ -60,14 +60,14 @@ public class Hover : MonoBehaviour{
 
     //when the ship is airborn, slowly change rotation so that it's facing upward
     void stabilize(){
-        Quaternion rollAngle = Quaternion.Euler(0f, rigidbody.rotation.eulerAngles.y, 0f);
-        rigidbody.rotation = Quaternion.Lerp(rigidbody.rotation, rollAngle, Time.deltaTime);
+        Quaternion rollAngle = Quaternion.Euler(0f, rb.rotation.eulerAngles.y, 0f);
+        rb.rotation = Quaternion.Lerp(rb.rotation, rollAngle, Time.deltaTime);
     }
 
     void fastFall(){
         //makes ship fall faster when in the air
         if (isAirborn(1.1f)){
-            rigidbody.AddForce(Vector3.down * fallSpeed, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * fallSpeed, ForceMode.Acceleration);
 
         }
     }
