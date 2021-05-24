@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; 
 
 public class LapManager : MonoBehaviour
 {
     private Transform checkpointsParent;
-    private int lastCheckpointPassed;
+    public int lastCheckpointPassed;
     private float timeStamp;
     public float currentLapTime {get; private set; } = 0;
 
@@ -15,6 +16,7 @@ public class LapManager : MonoBehaviour
     public int currentLap {get; private set; } = 0;
     public float bestLapTime {get; private set; } = Mathf.Infinity / 2;
 
+    public event EventHandler OnCheckpoint;
 
     //This code is based off a tutorial series by Imphenzia
     //"Low Poly Racing" series https://www.youtube.com/watch?v=h-sEtELln9k 
@@ -24,6 +26,7 @@ public class LapManager : MonoBehaviour
         checkpointsParent = GameObject.Find("Checkpoints").transform;
         checkpointsCount = checkpointsParent.childCount;
         checkpointLayer = LayerMask.NameToLayer("Checkpoint");
+        lastCheckpointPassed = 0;
     }
 
     void startLap(){
@@ -41,6 +44,7 @@ public class LapManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == checkpointLayer){
+            OnCheckpoint?.Invoke(this, EventArgs.Empty);
             if(other.gameObject.name == "0"){
                 if(lastCheckpointPassed == checkpointsCount - 1){
                     endLap();
@@ -52,8 +56,6 @@ public class LapManager : MonoBehaviour
             if(other.gameObject.name ==(lastCheckpointPassed + 1).ToString()){
                 lastCheckpointPassed++;
             }
-
-
         }
     }
 
@@ -61,6 +63,5 @@ public class LapManager : MonoBehaviour
         if (currentLap > 0){
             currentLapTime = Time.time - timeStamp;
         }
-
     }
 }

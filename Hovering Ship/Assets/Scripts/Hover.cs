@@ -50,7 +50,7 @@ public class Hover : MonoBehaviour{
 
                 //creates a force based on the distance to the ground from that point
                 Vector3 force = transform.up * percentForce * lift ;
-                Debug.DrawRay(ray.origin, ray.direction, Color.green,1);//debug
+                // Debug.DrawRay(ray.origin, ray.direction, Color.green,1);//debug
                 
                 rigidbody.AddForceAtPosition(force, hoverPoints[i].transform.position);
                 
