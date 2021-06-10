@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17643546240254abb88f23bc420ec5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lapManager: {fileID: 4998018968754203507}
+  waypointsParent: {fileID: 0}
 --- !u!1001 &2847830845862132708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,3 +120,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2847830845862132708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4998018968754203507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7122725203196579991, guid: bd1c896146b704969a9574210a7d5c66,
+    type: 3}
+  m_PrefabInstance: {fileID: 2847830845862132708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724657061917032678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a6f23a1df35ed4d8871947abf56087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

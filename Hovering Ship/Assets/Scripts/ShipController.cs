@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ShipController : MonoBehaviour {
     
@@ -33,9 +34,12 @@ public class ShipController : MonoBehaviour {
     #region Components
     [SerializeField] Transform shipBody; //manual reference to ship body for now
     Rigidbody rb;
+    LapManager lapManager;
     #endregion
     void Awake(){
         rb = GetComponent<Rigidbody>();
+        lapManager = GetComponent<LapManager>();
+        lapManager.OnCheckpoint += updateCheckpoint;
         // shipBody = transform.Find("AGS");
     }
 
@@ -87,6 +91,10 @@ public class ShipController : MonoBehaviour {
         rb.position = startPos;
         rb.rotation = startRot;
         rb.velocity = Vector3.zero;
+    }
+
+    void updateCheckpoint(object sender, EventArgs e){
+        startPos = rb.position;
     }
 
 }

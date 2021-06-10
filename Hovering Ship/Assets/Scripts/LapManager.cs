@@ -30,7 +30,6 @@ public class LapManager : MonoBehaviour
     }
 
     void startLap(){
-        // Debug.Log("start lap");
         currentLap++;
         lastCheckpointPassed = 0;
         timeStamp = Time.time;
